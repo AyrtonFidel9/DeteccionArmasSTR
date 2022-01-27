@@ -4,8 +4,6 @@ import imutils
 import datetime
 import asyncio
 import socketio
-import tracemalloc
-
 
 sio = socketio.AsyncClient()
 
@@ -30,7 +28,6 @@ async def disconnect():
 async def main():
     await sio.connect('http://localhost:8080')
     await sio.emit('msg', {'response': 'Holaaaaaaaaa soy la vigilanci'})
-    #await sio.wait()
     await detectar_arma()
     await sio.wait()
 
@@ -84,10 +81,8 @@ async def detectar_arma():
         cv2.imshow('SecurityFeed',frame)
 
         if len(gun) > 0:
-            #sio.send('¡¡¡¡Arma detectada!!!!')
-            #gun_exist = True
-            #notificacion()
             await sio.emit('msg',{'notificacion':'¡¡¡¡Arma detectada!!!!'})
+            await sio.sleep(0)
         else:
             gun_exist = False
         
@@ -101,7 +96,6 @@ async def detectar_arma():
         print("guns detected "+str(len(gun))+f"{gun}")
 
 if __name__ == '__main__': 
-    tracemalloc.start()
     asyncio.run(main())
 
 
