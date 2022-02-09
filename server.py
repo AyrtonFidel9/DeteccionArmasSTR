@@ -1,29 +1,37 @@
-from aiohttp import web
 import socketio
+import eventlet
+import eventlet.wsgi
+from flask import Flask, render_template, request
 
-sio = socketio.AsyncServer()
-app = web.Application()
-sio.attach(app)
+sio = socketio.Server()
+app = Flask(__name__)
+app.wsgi_app = socketio.WSGIApp(sio, static_files={
+    '/': "./public/"
+})
 
-async def index(request):
-    """Serve the client-side application."""
-    with open('index.html') as f:
-        return web.Response(text=f.read(), content_type='text/html')
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @sio.event
 def connect(sid, environ):
     print("connect ", sid)
 
 @sio.event
-async def msg(sid, data):
+def msg(sid, data):
     print(sid, " message ", data)
+    sio.emit('notification',{'msg':data})
 
 @sio.event
 def disconnect(sid):
     print('disconnect ', sid)
 
-#app.router.add_static('/static', 'static')
-#app.router.add_get('/', index)
+@sio.event
+def livestream(sid,video):
+    # print(sid," frames: ",video)
+    sio.emit('video',{'data':video})
+    pass
+
 
 if __name__ == '__main__':
-    web.run_app(app)
+    eventlet.wsgi.server(eventlet.listen(('', 8080)), app)

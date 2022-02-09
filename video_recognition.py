@@ -2,44 +2,41 @@ import numpy as np
 import cv2
 import imutils
 import datetime
-import asyncio
 import socketio
+import base64
 
-sio = socketio.AsyncClient()
+sio = socketio.Client()
 
 @sio.event
-async def connect():
+def connect():
     print("I'm connected!")
 
 @sio.event
-async def connect_error(data):
+def connect_error(data):
     print("The connection failed!")
 
 @sio.event 
-async def my_message(data):
+def my_message(data):
     print('message received with ', data)
-    await sio.emit('message', {'response': 5})
+    sio.emit('message', {'response': 5})
 
 
 @sio.event
-async def disconnect():
+def disconnect():
     print("I'm disconnected!")
 
-async def main():
-    await sio.connect('http://localhost:8080')
-    await sio.emit('msg', {'response': 'Holaaaaaaaaa soy la vigilanci'})
-    await detectar_arma()
-    await sio.wait()
 
-
-async def notificacion():
+def notificacion():
     #await asyncio.emit('msg', {'noti':'¡¡¡¡Arma detectada!!!!'})
-    await sio.emit('msg',{'notificacion':'¡¡¡¡Arma detectada!!!!'})
+    sio.emit('msg',{'notificacion':'¡¡¡¡Arma detectada!!!!'})
 
 
-async def detectar_arma():
+def detectar_arma():
+    global transmitir
     gun_cascade = cv2.CascadeClassifier('cascade.xml')
-    camera = cv2.VideoCapture('data/gun4_2.mp4')
+    #camera = cv2.VideoCapture('data/gun4_2.mp4')
+    #camera = cv2.VideoCapture(0)
+    camera = cv2.VideoCapture(1)
     #camera = cv2.VideoCapture('data/people.mp4')
 
     # initialize the first frame in the video stream
@@ -81,11 +78,22 @@ async def detectar_arma():
         cv2.imshow('SecurityFeed',frame)
 
         if len(gun) > 0:
-            await sio.emit('msg',{'notificacion':'¡¡¡¡Arma detectada!!!!'})
-            await sio.sleep(0)
+            sio.emit('msg',True)
+            print(datetime.datetime.now())
+            sio.sleep(0)
+            transmitir = True
         else:
             gun_exist = False
-        
+
+        if transmitir:
+            imagen = cv2.imencode('.jpg', frame)[1].tobytes()
+            imagen = base64.encodebytes(imagen).decode("utf-8")
+            # print("FRAME: "+imagen)
+            #imagen = base64.encodestring(imagen)
+
+            sio.emit('livestream', imagen)
+            sio.sleep(0)
+
         key = cv2.waitKey(1) & 0xFF
 
     # cleanup the camera and close any open windows
@@ -95,8 +103,12 @@ async def detectar_arma():
     if gun_exist:
         print("guns detected "+str(len(gun))+f"{gun}")
 
-if __name__ == '__main__': 
-    asyncio.run(main())
+if __name__ == '__main__':
+    transmitir = False
+    sio.connect('http://localhost:8080')
+    sio.emit('msg', {'response': 'Holaaaaaaaaa soy la vigilanci'})
+    detectar_arma()
+    sio.wait()
 
 
 
