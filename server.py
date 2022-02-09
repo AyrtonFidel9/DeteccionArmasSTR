@@ -32,6 +32,5 @@ def livestream(sid,video):
     sio.emit('video',{'data':video})
     pass
 
-
 if __name__ == '__main__':
     eventlet.wsgi.server(eventlet.listen(('', 8080)), app)

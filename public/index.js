@@ -16,14 +16,12 @@ socket.on('video', (image) => {
     var img = document.getElementById('play');
 
     img.src = "data:image/jpg;base64,"+image.data;
-
-
-    //$("#logger").text(image);
 })
 
 socket.on('notification', (value)=>{
     if(value.msg){
-        document.getElementById('not').innerText = "Arma detectada!!!";
+        document.getElementById('not').style.display ="block"
+        document.getElementById('not').innerText = "!!!Arma detectada!!!";
     }
 })
 

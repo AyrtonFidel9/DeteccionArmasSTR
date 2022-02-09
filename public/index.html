@@ -4,19 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cliente Receptor</title>
+    <link rel="stylesheet" href="/public/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Videovigilancia</title>
 </head>
 
 <body>
-    <h1>Receptor de Video</h1>
-    <img id="play" src="" alt="">
-
-    <div id="not">
-
-    </div>
-
-   
-    <!--<div id="logger"></div>-->
+    <header id="header">
+        <h1>Sala de monitoreo</h1>
+    </header>
+    <main id="main">
+        <section id="notificacion">
+            <div id="not">
+                Arma detectada
+            </div>
+        </section>
+        <section id="video">
+            <img id="play" src="" alt="">
+        </section>
+        <section id="controls">
+            <button id="parar" class="boton">Parar</button>
+            <button id="iniciar" class="boton">Iniciar</button>
+        </section>
+        
+    </main>
+    <footer id="footer">
+        &copy; ESPOCH, Copyright 2022 ❤️
+    </footer>
     <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
     <script src="./index.js"></script>     
 </body>
