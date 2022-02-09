@@ -25,4 +25,14 @@ socket.on('notification', (value)=>{
     }
 })
 
+function detener()
+{
+socket.close();
+}
+
+function reanudar()
+{
+socket.connect();
+}
+
 

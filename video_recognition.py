@@ -33,8 +33,8 @@ def notificacion():
 
 def detectar_arma():
     global transmitir
-    gun_cascade = cv2.CascadeClassifier('cascade9.xml')
-    #camera = cv2.VideoCapture('data/gun4_2.mp4')
+    gun_cascade = cv2.CascadeClassifier('cascade.xml')
+    camera = cv2.VideoCapture('data/gun4_2.mp4')
     #camera = cv2.VideoCapture(0)
     #camera = cv2.VideoCapture(1)
     #camera = cv2.VideoCapture('data/people.mp4')
