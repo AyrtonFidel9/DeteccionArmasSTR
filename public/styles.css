@@ -37,18 +37,21 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 83vh;
     width: 100vw;
 }
-
+/*
 #notificacion{
     width: 100%;
-    position: relative;
-    padding: 3rem;
+    position: absolute;
+    padding: 2rem;
 }
-
+*/
 #not{
-    float: right;
+    position: absolute;
+    top:15vh;
+    left: 80vw;
     height: 5rem;
     width: 23rem;
     background-color: var(--secondary);
@@ -60,10 +63,20 @@ body{
     align-items: center;
     font-size: 1.8rem;
     box-shadow: black 0.2rem 0.2rem 1rem;
-    display: none;
+   /* display: none;*/
 }
 
+#not__cerrar{
+    font-size: 2rem;
+    position: absolute;
+    padding-right: 1rem;
+    left: 90%;
+    color: var(--terciary);
+}
 
+#not__cerrar:hover{
+    cursor: pointer;
+}
 #controls{
     width: 30rem;
     height: 6rem;
@@ -89,6 +102,9 @@ body{
     border-color: transparent;
 }
 
+.boton:hover{
+    cursor: pointer;
+}
 
 #video{
     margin-bottom: 1rem;
@@ -96,8 +112,8 @@ body{
     border-style: solid;
     border-color: black;
     border-width: 0.1rem;
-    max-width: 320px;
-    max-height: 320px;
+    max-width: 35rem;
+    max-height: 35rem;
 }
 
 #play{

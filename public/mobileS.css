@@ -1,0 +1,9 @@
+#not{
+    position:sticky;
+    margin-bottom: 3rem;
+}
+
+#video{
+    max-width: 10rem;
+    max-height: 10rem;
+}

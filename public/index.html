@@ -8,6 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./desktop.css" media="screen and (min-width:1200px)">
+    <link rel="stylesheet" href="./laptopL.css" media="screen and (min-width:950px) and (max-width:1200px)">
+    <link rel="stylesheet" href="./laptop.css" media="screen and (min-width:768px) and (max-width:950px)">
+    <link rel="stylesheet" href="./tablet.css" media="screen and (min-width:650px) and (max-width:768px)">
+    <link rel="stylesheet" href="./mobile.css" media="screen and (min-width:490px) and (max-width:650px)">
+    <link rel="stylesheet" href="./mobileS.css" media="screen and (max-width:490px)">
+    <link rel="stylesheet" href="./videoS.css" media="screen and (max-height:500px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Videovigilancia</title>
 </head>
 
@@ -18,11 +26,11 @@
     <main id="main">
         <section id="notificacion">
             <div id="not">
-                Arma detectada
+                <div id="not__cerrar" onclick="cerrar()"><i class="fa fa-close"></i></div>
             </div>
         </section>
         <section id="video">
-            <img id="play" src="" alt="" width="800" height="800">
+            <img id="play" src="milan.jpg" alt="" width="800" height="800">
         </section>
         <section id="controls">
             <button id="parar" onclick="detener();" class="boton">Parar</button>
