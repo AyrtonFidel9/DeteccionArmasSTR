@@ -63,7 +63,7 @@ body{
     align-items: center;
     font-size: 1.8rem;
     box-shadow: black 0.2rem 0.2rem 1rem;
-   /* display: none;*/
+    display: none;
 }
 
 #not__cerrar{
