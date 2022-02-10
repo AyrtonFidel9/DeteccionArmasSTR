@@ -59,11 +59,15 @@ body{
     border-style: solid;
     border-color: transparent;
     text-align: center;
-    display: grid;
     align-items: center;
     font-size: 1.8rem;
     box-shadow: black 0.2rem 0.2rem 1rem;
-    display: none;
+    display: grid;
+    transition: all 0.5s ease-out;
+}
+
+.ocultar{
+    opacity: 0;
 }
 
 #not__cerrar{

@@ -18,7 +18,8 @@ socket.on('disconnect', ()=>{
 socket.on('notification', (value)=>{
     if(value.msg){
         btnIniciar.disabled = false;
-        document.getElementById('not').style.display ="block"
+        //document.getElementById('not').style.display ="block"
+        document.getElementById('not').classList.remove('ocultar');
     }
 });
 
@@ -36,7 +37,8 @@ function reanudar()
 
 function cerrar()
 {
-    document.getElementById('not').style.display ="none";
+    //document.getElementById('not').style.display ="none";
+    document.getElementById('not').classList.add('ocultar');
 }
 
 
