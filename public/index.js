@@ -29,22 +29,25 @@ function detener()
 
 function reanudar()
 {
-    init = True;
+    init = true;
     socket.connect();
-    socket.on('video', (image) => {
-        console.log(socket.id)
-        console.log(image.data)
-        if(init)
-        {
-            var img = document.getElementById('play');
-            img.src = "data:image/jpg;base64,"+image.data;
-        }
-    })
+
 }
 
 function cerrar()
 {
     document.getElementById('not').style.display ="none";
 }
+
+
+socket.on('video', (image) => {
+    console.log(socket.id)
+    console.log(image.data)
+    if(init)
+    {
+        var img = document.getElementById('play');
+        img.src = "data:image/jpg;base64,"+image.data;
+    }
+})
 
 
