@@ -1,4 +1,4 @@
-# DeteccionArmasSTR
+# Sistema en Tiempo Real de Detección de armas, OPENCV and HAAR CASCADE
 
 ![272212836_688897545631566_6286476679621086205_n](https://user-images.githubusercontent.com/70295855/153527685-a973114c-7335-42ce-a8f9-effec46c8ef3.png)
 
