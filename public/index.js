@@ -43,8 +43,6 @@ function cerrar()
 
 
 socket.on('video', (image) => {
-    console.log(socket.id)
-    console.log(image.data)
     if(init)
     {
         var img = document.getElementById('play');

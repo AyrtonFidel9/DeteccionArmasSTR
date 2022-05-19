@@ -20,7 +20,7 @@ def connect(sid, environ):
 @sio.event
 def msg(sid, data):
     print(sid, " message ", data)
-    sio.emit('notification',{'msg':data})
+    sio.emit('notification', {'msg':data})
 
 @sio.event
 def disconnect(sid):
@@ -29,8 +29,8 @@ def disconnect(sid):
 @sio.event
 def livestream(sid,video):
     # print(sid," frames: ",video)
-    sio.emit('video',{'data':video})
-    pass
+    sio.emit('video', {'data': video})
+
 
 if __name__ == '__main__':
     eventlet.wsgi.server(eventlet.listen(('', 8080)), app)
