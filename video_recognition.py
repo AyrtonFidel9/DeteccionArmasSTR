@@ -36,7 +36,9 @@ if __name__ == '__main__':
     transmitir = False
     sio.connect('http://localhost:8080')
     sio.emit('msg', {'response': 'Holaaaaaaaaa soy la vigilanci'})
-    detectar_arma(sio)
+    gun_cascade = cv2.CascadeClassifier('cascade.xml')
+    camera = cv2.VideoCapture(0)
+    iniciar_Reconocimiento(sio, gun_cascade, camera)
     sio.wait()
 
 

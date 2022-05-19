@@ -3,33 +3,26 @@ import datetime
 import cv2
 import imutils
 
-def transmitirVideo(frame):
+def decodificarVideo(frame):
     imagen = cv2.imencode('.jpg', frame)[1].tobytes()
     imagen = base64.encodebytes(imagen).decode("utf-8")
     return imagen
 
-def emitirSIO(sio, frame):
-    sio.emit('livestream', transmitirVideo(frame))
+def transmitirVideo(sio, frame):
+    sio.emit('livestream', decodificarVideo(frame))
     sio.sleep(0)
 
-def n_guns(sio, gun, frame):
+def detectar_arma(sio, gun, frame):
     if len(gun) > 0:
         sio.emit('msg', True)
         print(datetime.datetime.now())
         sio.sleep(0)
-        emitirSIO(sio, frame)
+        transmitirVideo(sio, frame)
         print("guns detected " + str(len(gun)) + f"{gun}")
 
 
-def detectar_arma(sio):
-    gun_cascade = cv2.CascadeClassifier('cascade.xml')
+def iniciar_Reconocimiento(sio, gun_cascade, camera):
 
-    camera = cv2.VideoCapture(0)
-    # camera = cv2.VideoCapture(0)
-    # camera = cv2.VideoCapture(1)
-    # camera = cv2.VideoCapture('data/people.mp4')
-
-    # initialize the first frame in the video stream
     firstFrame = None
 
     # loop over the frames of the video
@@ -65,7 +58,7 @@ def detectar_arma(sio):
         # show the frame and record if the user presses a key
         cv2.imshow('SecurityFeed', frame)
 
-        n_guns(sio, gun, frame)
+        detectar_arma(sio, gun, frame)
 
         key = cv2.waitKey(1) & 0xFF
 
