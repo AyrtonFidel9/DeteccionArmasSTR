@@ -97,7 +97,7 @@ def create_pos_n_neg():
     print("¡FELICIDADES, BG.TXT GENERADO CON EXITO !")
 
 
-def find_uglies():
+def find_uglies(dir):
     match = False
     for file_type in [dir + '/neg']:
         for img in os.listdir(file_type):
@@ -114,8 +114,6 @@ def find_uglies():
                     print(str(e))
 
 
-store_raw_images()
-store_positive_images()
 # create_pos_n_pos()
 # create_pos_n_neg()
 # print(f'Imagenes nuevas ingresadas = {len(features)}')

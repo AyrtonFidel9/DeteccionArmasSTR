@@ -1,14 +1,8 @@
-import unittest
+from video_recognition import *
 
-class TestVideo_recognition(unittest.TestCase):
-    def test_detectar_arma(self):
-#self.
-
+def test_connect():
+    assert connect() == None
 
 
-
-
-
-
-if __name__ == '__main__':
-    unittest.main()
+def test_disconnect():
+    assert disconnect() == None

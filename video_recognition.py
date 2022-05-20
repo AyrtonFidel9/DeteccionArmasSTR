@@ -30,12 +30,12 @@ def disconnect():
 
 def notificacion():
     #await asyncio.emit('msg', {'noti':'¡¡¡¡Arma detectada!!!!'})
-    sio.emit('msg',{'notificacion':'¡¡¡¡Arma detectada!!!!'})
+    sio.emit('msg', {'notificacion':'¡¡¡¡Arma detectada!!!!'})
 
 if __name__ == '__main__':
     transmitir = False
     sio.connect('http://localhost:8080')
-    sio.emit('msg', {'response': 'Holaaaaaaaaa soy la vigilanci'})
+    sio.emit('msg', {'response': 'Holaaaaaaaaa soy la vigilancia'})
     gun_cascade = cv2.CascadeClassifier('cascade.xml')
     camera = cv2.VideoCapture(0)
     iniciar_Reconocimiento(sio, gun_cascade, camera)

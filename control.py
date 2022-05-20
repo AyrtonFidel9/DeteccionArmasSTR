@@ -43,6 +43,7 @@ def iniciar_Reconocimiento(sio, gun_cascade, camera):
 
         for (x, y, w, h) in gun:
             frame = cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
+            print("frame: ", frame)
             roi_gray = gray[y:y + h, x:x + w]
             roi_color = frame[y:y + h, x:x + w]
 
@@ -63,6 +64,7 @@ def iniciar_Reconocimiento(sio, gun_cascade, camera):
         key = cv2.waitKey(1) & 0xFF
 
     # cleanup the camera and close any open windows
+
     camera.release()
     cv2.destroyAllWindows()
 
