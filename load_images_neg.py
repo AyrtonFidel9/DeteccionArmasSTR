@@ -4,8 +4,8 @@ import numpy as np
 import os
 
 guns = []
-dirp = r'/Users/edwinmanzano/Documents/Dev/Opencv/opencv-haar-classifier-training/positive_images'
-dir = r'/Users/edwinmanzano/Documents/Dev/Opencv/opencv-haar-classifier-training/negative_images'
+dirp = r'F:/Descargas/UNIVERSIDAD/7MO SEMESTRE/Software en Tiempo Real/3P_STR/pry_gundetection/DataSet_Guns'
+dir = r'F:/Descargas/UNIVERSIDAD/7MO SEMESTRE/Software en Tiempo Real/3P_STR/pry_gundetection/DataSet_Negatives'
 for i in os.listdir(dir):
     guns.append(i)
 print(guns)
@@ -114,8 +114,8 @@ def find_uglies():
                     print(str(e))
 
 
-store_raw_images()
-store_positive_images()
+#store_raw_images()
+#store_positive_images()
 # create_pos_n_pos()
 # create_pos_n_neg()
 # print(f'Imagenes nuevas ingresadas = {len(features)}')
