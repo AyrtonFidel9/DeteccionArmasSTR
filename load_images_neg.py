@@ -4,8 +4,8 @@ import numpy as np
 import os
 
 guns = []
-dirp = r'/Users/edwinmanzano/Documents/Dev/Opencv/opencv-haar-classifier-training/positive_images'
-dir = r'/Users/edwinmanzano/Documents/Dev/Opencv/opencv-haar-classifier-training/negative_images'
+dirp = r'/mnt/d/Development'
+dir = r'/mnt/d/Development/positivesimages'
 for i in os.listdir(dir):
     guns.append(i)
 print(guns)
@@ -69,16 +69,17 @@ def store_positive_images():
     print("OPERACION REALIZADA CORRECTAMENTE, IMAGENES GUARDADAS")
 
 
-def create_pos_n_pos():
-    path = dirp
-    for file_type in [path + '/pos']:
-        for img in os.listdir(file_type):
-
-            if file_type == path + '/pos':
-                line = file_type + '/' + img + '\n'
-                with open('positives.txt', 'a') as f:
-                    f.write(line)
-    print("¡FELICIDADES, INFO.DAT GENERADO CON EXITO !")
+def create_pos_n_pos(path):
+    try:
+        for file_type in [path + '/pos']:
+            for img in os.listdir(file_type):
+                if file_type == path + '/pos':
+                    line = file_type + '/' + img + '\n'
+                    with open('positives.txt', 'a') as f:
+                        f.write(line)
+        print("¡FELICIDADES, INFO.DAT GENERADO CON EXITO !")
+    except:
+        return None
 
 
 def create_pos_n_neg():
