@@ -3,14 +3,17 @@ import datetime
 import cv2
 import imutils
 
+
 def decodificarVideo(frame):
     imagen = cv2.imencode('.jpg', frame)[1].tobytes()
     imagen = base64.encodebytes(imagen).decode("utf-8")
     return imagen
 
+
 def transmitirVideo(sio, frame):
     sio.emit('livestream', decodificarVideo(frame))
     sio.sleep(0)
+
 
 def detectar_arma(sio, gun, frame):
     if len(gun) > 0:
@@ -22,14 +25,15 @@ def detectar_arma(sio, gun, frame):
 
 
 def iniciar_Reconocimiento(sio, gun_cascade, camera):
-
     firstFrame = None
 
     # loop over the frames of the video
 
     while True:
-        (grabbed, frame) = camera.read()
-
+        try:
+            (grabbed, frame) = camera.read()
+        except:
+            return "Camera not found"
         # if the frame could not be grabbed, then we have reached the end of the video
         if not grabbed:
             break
@@ -67,4 +71,3 @@ def iniciar_Reconocimiento(sio, gun_cascade, camera):
 
     camera.release()
     cv2.destroyAllWindows()
-

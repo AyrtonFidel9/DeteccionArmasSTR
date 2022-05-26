@@ -3,9 +3,13 @@ from unittest.mock import patch
 
 from load_images_neg import find_uglies
 
-def test_find_uglies():
-    with patch("load_images_neg.find_uglies",
-               return_value = 'That is one ugly pic! Deleting!') as patched:
-        dir = r'/Users/edwinmanzano/Documents/Dev/Opencv/opencv-haar-classifier-training/negative_images'
-        msg = find_uglies(dir)
-        assert msg == 'That is one ugly pic! Deleting!'
+
+@pytest.mark.parametrize(
+    ["dir", "result"],
+    [
+        (r'/Users/edwinmanzano/Documents/Dev/Opencv/opencv-haar-classifier-training/negative_images', "[Errno 2] No such file or directory: 'uglies'"),
+        (None, "Path not found")
+    ]
+)
+def test_find_uglies(dir, result):
+    assert find_uglies(dir) == result

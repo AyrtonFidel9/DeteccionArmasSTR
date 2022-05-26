@@ -98,20 +98,24 @@ def create_pos_n_neg():
 
 
 def find_uglies(dir):
-    match = False
-    for file_type in [dir + '/neg']:
-        for img in os.listdir(file_type):
-            for ugly in os.listdir('uglies'):
-                try:
-                    current_image_path = str(file_type) + '/' + str(img)
-                    ugly = cv.imread('uglies/' + str(ugly))
-                    question = cv.imread(current_image_path)
-                    if ugly.shape == question.shape and not (np.bitwise_xor(ugly, question).any()):
-                        print('That is one ugly pic! Deleting!')
-                        print(current_image_path)
-                        os.remove(current_image_path)
-                except Exception as e:
-                    print(str(e))
+    try:
+        if dir is None:
+            raise Exception("Path not found")
+        for file_type in [dir + '/neg']:
+            for img in os.listdir(file_type):
+                for ugly in os.listdir('uglies'):
+                    try:
+                        current_image_path = str(file_type) + '/' + str(img)
+                        ugly = cv.imread('uglies/' + str(ugly))
+                        question = cv.imread(current_image_path)
+                        if ugly.shape == question.shape and not (np.bitwise_xor(ugly, question).any()):
+                            print('That is one ugly pic! Deleting!')
+                            print(current_image_path)
+                            os.remove(current_image_path)
+                    except Exception as e:
+                        print(str(e))
+    except Exception as ex:
+        return str(ex)
 
 
 # create_pos_n_pos()
