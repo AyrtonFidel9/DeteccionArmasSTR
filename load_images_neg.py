@@ -4,8 +4,8 @@ import numpy as np
 import os
 
 guns = []
-dirp = r'F:/Descargas/UNIVERSIDAD/7MO SEMESTRE/Software en Tiempo Real/3P_STR/pry_gundetection/DataSet_Guns'
-dir = r'F:/Descargas/UNIVERSIDAD/7MO SEMESTRE/Software en Tiempo Real/3P_STR/pry_gundetection/DataSet_Negatives'
+dirp = r'C:/Users/black/Downloads/DataSet_Guns'
+dir = r'C:/Users/black/Downloads/DataSet_Negatives'
 for i in os.listdir(dir):
     guns.append(i)
 print(guns)
@@ -82,20 +82,22 @@ def create_pos_n_pos():
 
 
 def create_pos_n_neg():
-    path = dir
-    for file_type in [path + '/neg']:
-        for img in os.listdir(file_type):
+    try:
+        path = dir
+        for file_type in [path + '/neg']:
+            for img in os.listdir(file_type):
 
-            if file_type == path + '/pos':
-                line = file_type + '/' + img + ' 1 0 0 50 50\n'
-                with open('info.dat', 'a') as f:
-                    f.write(line)
-            elif file_type == path + '/neg':
-                line = file_type + '/' + img + '\n'
-                with open('negatives.txt', 'a') as f:
-                    f.write(line)
-    print("¡FELICIDADES, BG.TXT GENERADO CON EXITO !")
-
+                if file_type == path + '/pos':
+                    line = file_type + '/' + img + ' 1 0 0 50 50\n'
+                    with open('info.dat', 'a') as f:
+                        f.write(line)
+                elif file_type == path + '/neg':
+                    line = file_type + '/' + img + '\n'
+                    with open('negatives.txt', 'a') as f:
+                        f.write(line)
+        print("¡FELICIDADES, BG.TXT GENERADO CON EXITO !")
+    except Exception as e:
+        return None
 
 def find_uglies():
     match = False
