@@ -1,8 +1,5 @@
 import pytest
-from unittest.mock import patch
-
 from load_images_neg import find_uglies
-
 
 @pytest.mark.parametrize(
     ["dir", "result"],
