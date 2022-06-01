@@ -3,7 +3,6 @@ import socketio
 
 from control import *
 
-
 @pytest.mark.parametrize(
     ["sio", "gun_cascade", "camera", "salida"],
     [

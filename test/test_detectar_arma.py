@@ -1,11 +1,11 @@
 import socketio
 import pytest
 import numpy as np
-from control import *
+import imutils
 from unittest.mock import patch
 import cv2
 
-from control import detectar_arma
+from src import control as ctl
 
 sio = socketio.Client()
 gun_cascade = cv2.CascadeClassifier('cascade.xml')
@@ -29,6 +29,6 @@ def test_detectar_arma(input_a, input_b, input_c):
         gray = cv2.GaussianBlur(gray, (21, 21), 0)
         gun = input_b.detectMultiScale(gray, 1.3, 5, minSize=(100, 100))
         patch('control.transmitirVideo', return_value=None)
-        assert detectar_arma(input_a, gun, input_c) == None
+        assert ctl.detectar_arma(input_a, gun, input_c) == None
     except:
         pass
