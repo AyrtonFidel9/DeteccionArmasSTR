@@ -218,3 +218,4 @@ yarg==0.1.9
 yarl==1.7.2
 zipp==1.0.0
 zope.interface==4.7.1
+mypy
