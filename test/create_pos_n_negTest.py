@@ -1,8 +1,15 @@
 import pytest
-from load_images_neg import * 
-
-def test_something():
+from src import load_images_neg as load
+@pytest.mark.parametrize(
+    "dire",
+    [
+        (""),
+        ("/mnt/d/Development")
+    ]
+)
+def test_create_pos_n_neg(dir):
     #self.assertEqual(True, False)  # add assertion here
-    assert create_pos_n_neg() == None
+    path = dir
+    assert load.create_pos_n_neg(path) == None
 
 
