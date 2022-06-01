@@ -4,6 +4,7 @@ from unittest.mock import patch
 from load_images_neg import find_uglies
 
 
+<<<<<<< HEAD
 @pytest.mark.parametrize(
     ["dir", "result"],
     [
@@ -13,3 +14,5 @@ from load_images_neg import find_uglies
 )
 def test_find_uglies(dir, result):
     assert find_uglies(dir) == result
+=======
+>>>>>>> testFidel

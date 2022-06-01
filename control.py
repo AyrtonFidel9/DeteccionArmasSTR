@@ -64,7 +64,7 @@ def iniciar_Reconocimiento(sio, gun_cascade, camera):
         cv2.imshow('SecurityFeed', frame)
 
         detectar_arma(sio, gun, frame)
-
+        print(f"{sio}")
         key = cv2.waitKey(1) & 0xFF
 
     # cleanup the camera and close any open windows
