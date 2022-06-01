@@ -1,4 +1,3 @@
-from defer import return_value
 import socketio
 import pytest
 import numpy as np
@@ -6,11 +5,11 @@ from control import *
 from unittest.mock import patch
 import cv2
 
-
+from control import detectar_arma
 
 sio = socketio.Client()
 gun_cascade = cv2.CascadeClassifier('cascade.xml')
-frame = cv2.imread('./test/killbill.jpg')
+frame = cv2.imread('killbill.jpg')
 
 
 @pytest.mark.parametrize(
@@ -23,7 +22,6 @@ frame = cv2.imread('./test/killbill.jpg')
         (sio, gun_cascade, np.empty_like(frame)),
     ]
 )
-
 def test_detectar_arma(input_a, input_b, input_c):
     try:
         input_c = imutils.resize(input_c, width=500)
