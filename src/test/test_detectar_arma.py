@@ -5,6 +5,7 @@ import imutils
 from unittest.mock import patch
 import cv2
 import sys
+sys.path.append("../")
 
 from control import *
 
