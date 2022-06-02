@@ -8,9 +8,9 @@ import load_images_neg as load
         ("/mnt/c/Positives")
     ]
 )
-def test_create_pos_n_neg(dir):
+def test_create_pos_n_neg(dire):
     #self.assertEqual(True, False)  # add assertion here
-    path = dir
+    path = dire
     assert load.create_pos_n_neg(path) == None
 
 
