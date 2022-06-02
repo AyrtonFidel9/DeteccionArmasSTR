@@ -6,7 +6,7 @@ from unittest.mock import patch
     "dire",
     [
         (""),
-        ("/mnt/d/Development/positivesimages")
+        ("/images/imagespositives")
     ]
 )
 #@patch("load_image_neg.create_pos_n_pos")
