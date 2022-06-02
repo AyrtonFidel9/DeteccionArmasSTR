@@ -1,9 +1,0 @@
-# Sistema en Tiempo Real de Detección de armas, OPENCV and HAAR CASCADE
-
-![272212836_688897545631566_6286476679621086205_n](https://user-images.githubusercontent.com/70295855/153527685-a973114c-7335-42ce-a8f9-effec46c8ef3.png)
-
-![259211763_538497837266806_7810404283367537366_n](https://user-images.githubusercontent.com/70295855/153527687-40a30249-76a4-4dba-be5b-28e66aa16ba1.png)
-
-![248152188_1019411552254495_8176870367779913477_n](https://user-images.githubusercontent.com/70295855/153527789-087c1c13-a4e1-42ed-beea-3c8ccce2ac5f.png)
-
-![248271813_477154783901997_1037483577308960037_n](https://user-images.githubusercontent.com/70295855/153527794-c32848f2-33f3-4312-84ad-74150db67a47.png)
