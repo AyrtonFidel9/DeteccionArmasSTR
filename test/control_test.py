@@ -1,7 +1,8 @@
 import pytest
 import socketio
+import cv2
 
-from control import *
+from src.control import *
 
 @pytest.mark.parametrize(
     ["sio", "gun_cascade", "camera", "salida"],
