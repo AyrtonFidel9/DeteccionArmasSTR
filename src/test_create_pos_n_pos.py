@@ -1,5 +1,5 @@
 import pytest
-from src import load_images_neg as load
+import load_images_neg as load
 from unittest.mock import patch
 
 @pytest.mark.parametrize(

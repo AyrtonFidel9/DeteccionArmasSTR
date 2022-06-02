@@ -1,5 +1,5 @@
 import pytest
-from src.server import *
+from server import *
 
 def test_connectparametro():
     sid="id"

@@ -1,5 +1,5 @@
 import pytest
-from src.load_images_neg import find_uglies
+from load_images_neg import find_uglies
 
 @pytest.mark.parametrize(
     ["dir", "result"],
