@@ -71,13 +71,16 @@ def store_positive_images():
 
 def create_pos_n_pos(path):
     try:
-        for file_type in [path + '/pos']:
-            for img in os.listdir(file_type):
-                if file_type == path + '/pos':
-                    line = file_type + '/' + img + '\n'
-                    with open('positives.txt', 'a') as f:
-                        f.write(line)
-        print("¡FELICIDADES, INFO.DAT GENERADO CON EXITO !")
+        if os.path.isdir(path):
+            for file_type in [path + '/pos']:
+                for img in os.listdir(file_type):
+                    if file_type == path + '/pos':
+                        line = file_type + '/' + img + '\n'
+                        with open('positives.txt', 'a') as f:
+                            f.write(line)
+            print("¡FELICIDADES, INFO.DAT GENERADO CON EXITO !")
+        else:
+            return None 
     except:
         return None
 
@@ -100,7 +103,7 @@ def create_pos_n_neg():
 
 def find_uglies(dir):
     try:
-        if dir is None:
+        if dir is None or os.path.isdir(dir):
             raise Exception("Path not found")
         for file_type in [dir + '/neg']:
             for img in os.listdir(file_type):
