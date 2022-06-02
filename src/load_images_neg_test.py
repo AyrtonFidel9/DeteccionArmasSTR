@@ -6,7 +6,7 @@ from unittest.mock import patch
 @pytest.mark.parametrize(
     ["dir", "result"],
     [
-        ('/images/negativeimages', "[Errno 2] No such file or directory: 'uglies'"),
+        ('/images/negativeimages', "[Errno 2] No such file or directory: '/images/negativeimages/neg'"),
         (None, "Path not found")
     ]
 )
