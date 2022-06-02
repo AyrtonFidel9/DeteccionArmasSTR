@@ -5,7 +5,7 @@ import imutils
 from unittest.mock import patch
 import cv2
 
-import DeteccionArmasSTR.src.control import *
+from DeteccionArmasSTR.src.control import *
 
 sio = socketio.Client()
 gun_cascade = cv2.CascadeClassifier('cascade.xml')
