@@ -6,7 +6,7 @@ from unittest.mock import patch
 import cv2
 import sys
 
-from control import *
+from ..control import *
 
 sio = socketio.Client()
 gun_cascade = cv2.CascadeClassifier('cascade.xml')
