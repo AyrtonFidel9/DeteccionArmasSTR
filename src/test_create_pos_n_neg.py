@@ -4,7 +4,8 @@ import load_images_neg as load
     "dire",
     [
         (""),
-        ("/mnt/d/Development")
+        ("/mnt/d/Development"),
+        ("/mnt/c/Positives")
     ]
 )
 def test_create_pos_n_neg(dir):
