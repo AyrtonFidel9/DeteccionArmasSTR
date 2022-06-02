@@ -6,7 +6,7 @@ from unittest.mock import patch
 @pytest.mark.parametrize(
     ["dir", "result"],
     [
-        ('/Users/edwinmanzano/Documents/Dev/Opencv/opencv-haar-classifier-training/negative_images', "[Errno 2] No such file or directory: 'uglies'"),
+        ('/images/negative_images', "[Errno 2] No such file or directory: 'uglies'"),
         (None, "Path not found")
     ]
 )
