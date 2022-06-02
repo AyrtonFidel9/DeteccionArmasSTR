@@ -82,20 +82,22 @@ def create_pos_n_pos(path):
         return None
 
 
-def create_pos_n_neg():
-    path = dir
-    for file_type in [path + '/neg']:
-        for img in os.listdir(file_type):
+def create_pos_n_neg(path):
+    try:
+        for file_type in [path + '/neg']:
+            for img in os.listdir(file_type):
 
-            if file_type == path + '/pos':
-                line = file_type + '/' + img + ' 1 0 0 50 50\n'
-                with open('info.dat', 'a') as f:
-                    f.write(line)
-            elif file_type == path + '/neg':
-                line = file_type + '/' + img + '\n'
-                with open('negatives.txt', 'a') as f:
-                    f.write(line)
-    print("¡FELICIDADES, BG.TXT GENERADO CON EXITO !")
+                if file_type == path + '/pos':
+                    line = file_type + '/' + img + ' 1 0 0 50 50\n'
+                    with open('info.dat', 'a') as f:
+                        f.write(line)
+                elif file_type == path + '/neg':
+                    line = file_type + '/' + img + '\n'
+                    with open('negatives.txt', 'a') as f:
+                        f.write(line)
+        print("¡FELICIDADES, BG.TXT GENERADO CON EXITO !")
+    except:
+        return None
 
 
 def find_uglies(dir):
