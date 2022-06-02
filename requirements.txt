@@ -10,5 +10,5 @@ python-socketio==4.4.0
 websocket-client==1.2.3
 websockets==8.1
 mypy
-imutils
+imutils==0.5.4
 unittest
