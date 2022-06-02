@@ -2,6 +2,7 @@ from defer import return_value
 import pytest
 import load_images_neg as load
 from unittest.mock import patch
+from defer import return_value
 
 #@pytest.mark.parametrize(
 #    "dire",
