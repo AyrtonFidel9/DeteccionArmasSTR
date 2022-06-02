@@ -4,8 +4,8 @@ import numpy as np
 import os
 
 guns = []
-dirp = r'/mnt/d/Development'
-dir = r'/mnt/d/Development/positivesimages'
+#dirp = r'/mnt/d/Development'
+#dir = r'/mnt/d/Development/positivesimages'
 for i in os.listdir(dir):
     guns.append(i)
 print(guns)
@@ -47,7 +47,7 @@ def store_raw_images():
     #    labels.append(label)
 
 
-def store_positive_images():
+def store_positive_images(dirp):
     pic_num = 1
     path = dirp
     if not os.path.exists(f"{path}/pos/"):
