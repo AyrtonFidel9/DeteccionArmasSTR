@@ -6,9 +6,9 @@ import os
 guns = []
 #dirp = r'/mnt/d/Development'
 #dir = r'/mnt/d/Development/positivesimages'
-for i in os.listdir(dir):
-    guns.append(i)
-print(guns)
+#for i in os.listdir(dir):
+#    guns.append(i)
+#print(guns)
 
 features = []
 labels = []
