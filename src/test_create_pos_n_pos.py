@@ -15,3 +15,6 @@ from defer import return_value
 def test_create_pos_n_pos(dire):
     path = dire
     assert load.create_pos_n_pos(path) == None
+
+if __name__ == '__main__':
+    pytest.main()

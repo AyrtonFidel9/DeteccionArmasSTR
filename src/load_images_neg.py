@@ -18,9 +18,9 @@ gun_cascade = cv.CascadeClassifier('cascade2.xml')
 
 # 5, 2 , 7
 
-def store_raw_images():
+def store_raw_images(dirp):
     pic_num = 1
-    path = dir
+    path = dirp
     if not os.path.exists(f"{path}/neg/"):
         os.makedirs(f"{path}/neg/")
 
